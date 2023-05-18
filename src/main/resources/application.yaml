@@ -1,0 +1,8 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:cloud}

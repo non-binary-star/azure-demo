@@ -1,0 +1,3 @@
+application:
+  event-hubs:
+    enabled: false

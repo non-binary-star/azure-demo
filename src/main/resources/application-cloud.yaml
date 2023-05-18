@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    azure:
+      eventhubs:
+        processor:
+          checkpoint-store:
+            account-name: fisrtstorageaccount
+            container-name: checkpoint-store
+        namespace: my-public-namespace
+    stream:
+      #      poller:
+      #        fixed-delay: '1000'
+      #        initial-delay: '0'
+      bindings:
+        consume-in-0:
+          group: $Default
+          destination: my-eventhub
+        supply-out-0:
+          destination: my-eventhub
+      eventhubs:
+        bindings:
+          consume-in-0:
+            consumer:
+              checkpoint:
+                mode: MANUAL
+    function:
+      definition: consume;supply;
+application:
+  event-hubs:
+    enabled: true
