@@ -2,6 +2,7 @@ spring:
   cloud:
     azure:
       eventhubs:
+        enabled: true
         processor:
           checkpoint-store:
             account-name: fisrtstorageaccount
